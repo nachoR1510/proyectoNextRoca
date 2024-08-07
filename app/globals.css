@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.bgRojo {
+
+  background-color: #bf3131;
+
+}
+
+.textoRojo {
+
+  color: #bf3131;
+  
+}
+
+.bgRojoBlur {
+
+  background-color: #bf3131b4;
+  backdrop-filter: blur(60);
+
+  
+}
+
+.bgNegro {
+
+  background-color: #1a1e24;
+}
+
+.borde{
+
+  border-bottom: #ffffff3a;
+  border-style: solid;
+  border-bottom-width: 1px;
+}
