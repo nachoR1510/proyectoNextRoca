@@ -1,3 +1,3 @@
-**primera preentrega de mi proyecto:
+# primera preentrega de mi proyecto:
 
 Para esta entrega, armé la maquetación de la página. La idea es crear un e-commerce de venta de periféricos para PC o consolas. Elegí esta temática para diseñar una web con un estilo moderno y "tecnológico". Por el momento, el diseño de la página es sencillo, pero para la versión final tengo pensado un estilo más elaborado. En esta etapa, he cargado 9 productos (3 de cada tipo). A futuro, la idea es agregar más productos y categorías, no solo de PC. use tailwind para casi todo el diseño de la pagina y aplique algunos media queres de este asi que no deberia romperse el diseño en pantallas mas pequeñas.
