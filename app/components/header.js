@@ -4,24 +4,40 @@ import Link from "next/link";
 
 const header = () => {
   return (
-    <header className="w-full h-16 grid grid-colums-3 bgRojoBlur text-white borde text-xl font-bold fixed">
-      <div className="gap-4 flex col-span-1 col-star-3 col-end-3 justify-center items-center">
+    <header className="w-full h-20 grid grid-colums-3 text-black backdrop-blur-3xl bg-gray-50/90 text-xl font-bold fixed font-urban aling-center">
+      <div className="gap-4 flex col-start-2 justify-center items-center">
         <Link href={"/productos"}>
-          <h2>Productos</h2>
+          <h2>PRODUCTOS</h2>
         </Link>
         <Link href={"/"}>
-          <Image alt="logo" src={"/logo.png"} width={60} height={60} />
+          <div className="flex flex-col place-items-center">
+            <Image alt="logo" src={"/logo.png"} width={50} height={50} />
+            <p className="text-sm">MAMBA</p>
+          </div>
         </Link>
         <Link href={"/drivers"}>
-          <h3>Drivers</h3>
+          <h3>DRIVERS</h3>
         </Link>
       </div>
 
-      <div className="col-span-1 col-star-4 col-end-4 flex gap-4 mt-5 justify-center mb-4">
+      <div className="col-start-3 flex justify-center items-center gap-5">
         <Link href={"/carrito"}>
-          <Image alt="imgCarrito" src={"/cart.svg"} width={25} height={25} />
+          <Image
+            alt="imgCarrito"
+            src={"/icon-cart.svg"}
+            width={30}
+            height={30}
+          />
         </Link>
-        <Image alt="imgUsuario" src={"/person.svg"} width={25} height={25} />
+
+        <Link href={"/"}>
+          <Image
+            alt="imgUsuario"
+            src={"/icon-user.svg"}
+            width={30}
+            height={30}
+          />
+        </Link>
       </div>
     </header>
   );

@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,29 +12,9 @@
   }
 }
 
-.bgRojo {
-
-  background-color: #bf3131;
-
-}
-
-.textoRojo {
-
-  color: #bf3131;
-  
-}
-
-.bgRojoBlur {
-
-  background-color: #bf3131b4;
-  backdrop-filter: blur(60);
-
-  
-}
-
-.bgNegro {
-
-  background-color: #1a1e24;
+.bgBlur{
+  background-color: rgba(255, 255, 255, 0.397);
+  backdrop-filter: blur(100px);
 }
 
 .borde{
