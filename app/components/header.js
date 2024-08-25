@@ -6,7 +6,7 @@ const header = () => {
   return (
     <header className="w-full h-20 grid grid-colums-3 text-black backdrop-blur-3xl bg-gray-50/90 text-xl font-bold fixed font-urban aling-center">
       <div className="gap-4 flex col-start-2 justify-center items-center">
-        <Link href={"/productos"}>
+        <Link href={"/productos/all"}>
           <h2>PRODUCTOS</h2>
         </Link>
         <Link href={"/"}>

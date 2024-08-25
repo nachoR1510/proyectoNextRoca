@@ -4,45 +4,46 @@ import Image from "next/image";
 
 const productFilter = () => {
   return (
-    <div className="min-w-full flex justify-center content-center mb-5">
-      <div className="flex justify-center gap-10 p-2 bgRojo mt-5 place-content-center w-80">
-        <div className="flex flex-col justify-center content-center">
-          <Link href={"/productos/teclado"}>
+    <div className="flex justify-center mb-5">
+      <div className="flex justify-center gap-10 mt-7">
+        <div className="flex flex-col justify-center items-center">
+          <Link href={"/productos/teclado"} className="h-24">
             <Image
-              src={"/keyboard-fill.svg"}
+              src={"/icon-keyboard.webp"}
               alt="teclado-icon"
-              width={60}
-              height={60}
+              width={160}
+              height={100}
+              className="pt-5"
             />
           </Link>
 
-          <p className="text-white text-center">Teclados</p>
+          <p className="text-white text-center font-urban">Teclados</p>
         </div>
 
         <div className="flex flex-col justify-center text-center">
-          <Link href={"/productos/mouse"}>
+          <Link href={"/productos/mouse"} className="h-24">
             <Image
-              src={"/mouse-fill.svg"}
+              src={"/icon-mouse.png"}
               alt="mouse-icon"
-              width={60}
-              height={60}
+              width={100}
+              height={90}
             />
           </Link>
 
-          <p className="text-white">Mouse</p>
+          <p className="text-white font-urban">Mouse</p>
         </div>
 
         <div className="flex flex-col justify-center text-center">
-          <Link href={"/productos/auriculares"}>
+          <Link href={"/productos/auriculares"} className="h-24">
             <Image
-              src={"/headset.svg"}
+              src={"/icon-headphone.webp"}
               alt="auriculares-icon"
-              width={60}
-              height={60}
+              width={100}
+              height={90}
             />
           </Link>
 
-          <p className="text-white ">Auriculares</p>
+          <p className="text-white font-urban">Auriculares</p>
         </div>
       </div>
     </div>
