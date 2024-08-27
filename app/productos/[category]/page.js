@@ -1,29 +1,29 @@
 import React from "react";
 import ProductList from "@/app/components/productList";
-import { collection, getDocs, query, where } from "firebase/firestore";
-import { db } from "@/app/firebase/config";
 
-const getProducts = async (category) => {
-  try {
-    const productosRef = collection(db, "productos");
-    let q;
-    if (category === "all") {
-      q = query(productosRef);
-    } else {
-      q = query(productosRef, where("category", "==", category));
-    }
-    const querySnapshot = await getDocs(q);
-    const docs = querySnapshot.docs.map((doc) => doc.data());
-    return docs;
-  } catch (error) {}
-};
+export async function generateMetadata({ params, searchParams }, parent) {
+  return {
+    title: `proyectoNextRoca - ${params.category}`,
+  };
+}
 
-const tipo = async ({ params }) => {
+export function generateStaticParams() {
+  return [
+    { category: "all" },
+    { category: "mouse" },
+    { category: "teclado" },
+    { category: "auriculares" },
+  ];
+}
+
+export const revalidate = 3600;
+
+const tipo = ({ params }) => {
   const { category } = params;
-  const data = await getProducts(category);
+
   return (
     <div>
-      <ProductList category={category} data={data} />
+      <ProductList category={category} />
     </div>
   );
 };

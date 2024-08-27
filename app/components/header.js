@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Cart from "./cart/cart";
 
 const header = () => {
   return (
@@ -22,12 +23,7 @@ const header = () => {
 
       <div className="col-start-3 flex justify-center items-center gap-5">
         <Link href={"/carrito"}>
-          <Image
-            alt="imgCarrito"
-            src={"/icon-cart.svg"}
-            width={30}
-            height={30}
-          />
+          <Cart />
         </Link>
 
         <Link href={"/"}>
