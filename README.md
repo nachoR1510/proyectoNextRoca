@@ -5,7 +5,7 @@
 -Ahora se puede eliminar del carrito los productos y al tocar un boton de comprar sale una alerta simulando un check out. 
 -Se pueden cargar productos a la firebase y se pueden cargar con imagenes tmb
 
-# Segunda pre-entrega:
+## Segunda pre-entrega:
 - Integre Firebase y Firestore al proyecto, permitiendo mostrar los productos correctamente desde la base de datos. El mockdata fue eliminado, ya que dejó de ser útil.
 - Como sugeriste en la entrega anterior, añadi metadata a la pestaña de productos. Ahora, al estar en una categoría específica, también se refleja en el título del proyecto.
 - Incorpore el Context al proyecto, lo que permitio añadir productos al carrito, visualizarlos, vaciarlo y ver la cantidad de productos en el icono del header. Solo falta implementar las funciones de sumar o restar la cantidad de un mismo producto desde el carrito. También se utilizó LocalStorage, por lo que los artículos se guardan incluso si se recarga la página.
