@@ -1,6 +1,6 @@
 import React from "react";
 import ProductTable from "../components/admin/productTable";
-import LogoutButton from "../components/admin/LogoutButton";
+import LogoutButton from "../components/admin/logoutButton";
 import Button from "../components/button";
 import Link from "next/link";
 

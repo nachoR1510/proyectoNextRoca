@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { UseCartContext } from "../context/cartContext";
 
-const cart = () => {
+const Cart = () => {
   const { cartTotalQuantity } = UseCartContext();
 
   return (
@@ -13,4 +13,4 @@ const cart = () => {
   );
 };
 
-export default cart;
+export default Cart;

@@ -3,7 +3,7 @@ import Button from "../button";
 import { useCartContext } from "../context/cartContext";
 import { useState } from "react";
 
-const cartModifier = (item, quantity) => {
+const CartModifier = (item, quantity) => {
   const { cartCount, removeFromCart, cartSub } = useCartContext();
   const [count, setCount] = useState(quantity);
 
@@ -39,4 +39,4 @@ const cartModifier = (item, quantity) => {
   );
 };
 
-export default cartModifier;
+export default CartModifier;

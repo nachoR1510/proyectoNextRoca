@@ -1,5 +1,5 @@
 import React from "react";
-import CreateForm from "@/app/components/admin/CreateForm";
+import CreateForm from "@/app/components/admin/createForm";
 
 const createPage = async () => {
   return (
