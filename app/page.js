@@ -44,7 +44,7 @@ export default function Home() {
         </div>
 
         <div className="row-start-10 hidden lg:col-span-2 lg:flex  justify-center gap-5">
-          <div className="bgBlur w-[500px] h-40 flex flex-col gap-5 border">
+          <div className="backdrop-blur bg-white/20 w-[500px] h-40 flex flex-col gap-5">
             <h2 className="font-croma font-bold text-xl text-center pt-2">
               Intercambio rapido.
             </h2>
@@ -53,7 +53,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="bgBlur w-[500px] h-40 flex flex-col gap-5 border">
+          <div className="backdrop-blur bg-white/20 w-[500px] h-40 flex flex-col gap-5">
             <h2 className="font-croma font-bold text-xl text-center pt-2">
               Perilla de control.
             </h2>
@@ -62,7 +62,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="bgBlur w-[500px] h-40 flex flex-col gap-5 border">
+          <div className="backdrop-blur bg-white/20 w-[500px] h-40 flex flex-col gap-5">
             <h2 className="font-croma font-bold text-xl text-center pt-2">
               ALUMINIO CNC.
             </h2>

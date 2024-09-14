@@ -11,15 +11,3 @@
     text-wrap: balance;
   }
 }
-
-.bgBlur{
-  background-color: rgba(255, 255, 255, 0.397);
-  backdrop-filter: blur(100px);
-}
-
-.borde{
-
-  border-bottom: #ffffff3a;
-  border-style: solid;
-  border-bottom-width: 1px;
-}

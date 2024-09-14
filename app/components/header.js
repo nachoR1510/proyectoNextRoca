@@ -5,7 +5,7 @@ import Cart from "./cart/cart";
 
 const header = () => {
   return (
-    <header className="w-full h-20 grid grid-colums-3 text-black backdrop-blur-3xl bg-gray-50/90 text-xl font-bold fixed font-urban aling-center">
+    <header className="w-full h-20 grid grid-colums-3 text-black backdrop-blur-lg bg-white/50  text-xl font-bold fixed font-urban aling-center z-50">
       <div className="gap-4 flex col-start-2 justify-center items-center">
         <Link href={"/productos/all"}>
           <h2>PRODUCTOS</h2>
@@ -16,8 +16,8 @@ const header = () => {
             <p className="text-sm">MAMBA</p>
           </div>
         </Link>
-        <Link href={"/drivers"}>
-          <h3>DRIVERS</h3>
+        <Link href={"/software"}>
+          <h3>SOFTWARE</h3>
         </Link>
       </div>
 
@@ -26,7 +26,7 @@ const header = () => {
           <Cart />
         </Link>
 
-        <Link href={"/"}>
+        <Link href={"/admin"}>
           <Image
             alt="imgUsuario"
             src={"/icon-user.svg"}

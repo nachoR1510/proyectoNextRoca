@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import HEADER from "./components/header";
 import { CartProvider } from "./components/context/cartContext";
+import { AuthProvider } from "./components/context/AuthContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,10 +17,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`bg-stone-900 ${inter.className}`}>
-        <CartProvider>
-          <HEADER />
-          {children}
-        </CartProvider>
+        <AuthProvider>
+          <CartProvider>
+            <HEADER />
+            {children}
+          </CartProvider>
+        </AuthProvider>
       </body>
     </html>
   );

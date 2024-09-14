@@ -4,23 +4,35 @@ import Image from "next/image";
 import ItemCounter from "./cart/itemCounter";
 
 const productDetail = ({ product }) => {
-  const { title, img, price, description } = product;
+  const { title, img, price, description, fabricante } = product;
   return (
-    <div className="overflow-hidden w-screen h-screen grid grid-rows-12 grid-cols-2">
-      <div className="col-span-2 row-span-6 bg-zinc-400 col-start-1 row-start-1"></div>
+    <div className="w-screen h-screen grid grid-rows-12 grid-cols-2">
+      <div
+        className="col-span-2 row-span-6 col-start-1 row-start-1"
+        style={{
+          backgroundImage: `url("/bg-productDetail.webp")`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
+      ></div>
 
-      <div className="col-start-1 row-start-3 row-span-4 justify-self-center">
-        <Image alt={title} src={img} width={600} height={800} />
+      <div className="col-start-1 row-start-3 row-span-4 justify-self-center place-self-start">
+        <Image alt={title} src={img} width={500} height={600} />
       </div>
 
       <div className="col-start-2 row-start-3 flex flex-col gap-2">
-        <h1 className="lg:text-7xl text-xl font-urban font-bold">{title}</h1>
-        <h2 className="lg:text-7xl text-xl font-urban font-bold">${price}</h2>
+        <h1 className="lg:text-7xl text-xl font-urban font-bold text-white">
+          {title}
+        </h1>
+        <h2 className="lg:text-7xl text-xl font-urban font-bold text-white">
+          ${price}
+        </h2>
         <ItemCounter product={product} />
       </div>
 
-      <div className="col-start-1 lg:col-start-2 col-span-2 lg:col-span-1 row-start-8 ">
-        <p className="text-white w-96 text-center">{description}</p>
+      <div className="col-start-1 col-span-2 row-start-9 lg:text-xl flex justify-center flex-col">
+        <p className="text-white text-center pb-2">fabricante: {fabricante}</p>
+        <p className="text-white  text-center ml-20 mr-20"> {description}</p>
       </div>
     </div>
   );
