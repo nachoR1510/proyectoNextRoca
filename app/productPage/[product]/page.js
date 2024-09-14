@@ -1,19 +1,26 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import ProductDetail from "@/app/components/productDetail";
 
-const Product = async () => {
+const Product = () => {
   const { product } = useParams();
-  const data = await fetch(
-    `http://${process.env.VERCEL_URL}/api/productos/all`,
-    {
-      cache: "no-store",
-    }
-  ).then((r) => r.json());
-  const filterData = data.filter(
-    (item) => item.title.replace(/ /g, "") === product
-  );
+  const [filterData, setFilterData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await fetch(`/api/productos/all`, {
+        cache: "no-store",
+      }).then((r) => r.json());
+      const filtered = data.filter(
+        (item) => item.title.replace(/ /g, "") === product
+      );
+      setFilterData(filtered);
+    };
+
+    fetchData();
+  }, [product]);
+
   return (
     <div>
       {filterData.map((product, index) => (
