@@ -5,9 +5,12 @@ import ProductDetail from "@/app/components/productDetail";
 
 const Product = async () => {
   const { product } = useParams();
-  const data = await fetch(`http://localhost:3000/api/productos/all`, {
-    cache: "no-store",
-  }).then((r) => r.json());
+  const data = await fetch(
+    `http://${process.env.VERCEL_URL}/api/productos/all`,
+    {
+      cache: "no-store",
+    }
+  ).then((r) => r.json());
   const filterData = data.filter(
     (item) => item.title.replace(/ /g, "") === product
   );

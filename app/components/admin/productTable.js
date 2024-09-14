@@ -3,9 +3,12 @@ import Image from "next/image";
 import DeleteProductBtn from "./delateProductBtn";
 
 const productTable = async () => {
-  const items = await fetch("http://localhost:3000/api/productos/all", {
-    cache: "no-store",
-  }).then((r) => r.json());
+  const items = await fetch(
+    `http://${process.env.VERCEL_URL}/api/productos/all`,
+    {
+      cache: "no-store",
+    }
+  ).then((r) => r.json());
 
   return (
     <div className="overflow-x-auto">
