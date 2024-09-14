@@ -3,7 +3,7 @@ import React from "react";
 import { useAuthContext } from "../context/AuthContext";
 import Button from "../button";
 
-const logoutButton = () => {
+const LogoutButton = () => {
   const { logout } = useAuthContext();
   return (
     <Button onClick={logout} className="bg-red-500 rounded text-white p-2">
@@ -12,4 +12,4 @@ const logoutButton = () => {
   );
 };
 
-export default logoutButton;
+export default LogoutButton;

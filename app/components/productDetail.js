@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import ItemCounter from "./cart/ItemCounter";
+import ItemCounter from "./cart/itemCounter";
 
 const productDetail = ({ product }) => {
   const { title, img, price, description, fabricante } = product;

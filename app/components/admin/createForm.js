@@ -12,7 +12,7 @@ const createProduct = async (values, file) => {
   return setDoc(docRef, { ...values, img: values.img });
 };
 
-const createForm = () => {
+const CreateForm = () => {
   const [values, setValues] = useState({
     title: "",
     price: 0,
@@ -117,4 +117,4 @@ const createForm = () => {
   );
 };
 
-export default createForm;
+export default CreateForm;
