@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Cart from "./cart/cart";
+import Cart from "./cart/Cart";
 
 const header = () => {
   return (

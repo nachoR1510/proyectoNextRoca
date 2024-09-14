@@ -13,7 +13,7 @@ const AuthContext = createContext();
 export const useAuthContext = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState({ logged: true, email: null, uid: null });
+  const [user, setUser] = useState({ logged: false, email: null, uid: null });
 
   const registerUser = async (values) => {
     try {

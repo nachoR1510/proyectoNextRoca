@@ -1,13 +1,12 @@
 "use client";
 import React from "react";
-import { useCartContext } from "../components/context/cartContext";
+import { UseCartContext } from "../components/context/cartContext";
 import Image from "next/image";
 import Button from "../components/button";
-import CartModifier from "../components/cart/cartModifier";
 import Swal from "sweetalert2";
 
 const carrito = () => {
-  const { cart, totalPrice, clearCart, removeFromCart } = useCartContext();
+  const { cart, totalPrice, clearCart, removeFromCart } = UseCartContext();
 
   const clean = () => {
     clearCart();
@@ -50,9 +49,12 @@ const carrito = () => {
       </div>
 
       <div className="row-start-3 col-start-1 col-span-3 lg:text-4xl justify-self-center flex flex-col gap-5">
-        {cart.map((item) => {
+        {cart.map((item, index) => {
           return (
-            <div className="bg-gradient-to-r from-zinc-900 to-zinc-900 via-zinc-800 border border-white/10 flex p-2 items-center rounded hover:shadow-lg hover:shadow-purple-600/50">
+            <div
+              className="bg-gradient-to-r from-zinc-900 to-zinc-900 via-zinc-800 border border-white/10 flex p-2 items-center rounded hover:shadow-lg hover:shadow-purple-600/50"
+              key={index}
+            >
               <h3 className="font-urban p-2 text-xl lg:w-72 text-white">
                 {item.title}
               </h3>

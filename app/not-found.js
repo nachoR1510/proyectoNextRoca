@@ -3,7 +3,7 @@ import React from "react";
 import Button from "./components/button";
 import { useRouter } from "next/navigation";
 
-const notFound = () => {
+const NotFound = () => {
   const router = useRouter();
   return (
     <main>
@@ -14,4 +14,4 @@ const notFound = () => {
   );
 };
 
-export default notFound;
+export default NotFound;

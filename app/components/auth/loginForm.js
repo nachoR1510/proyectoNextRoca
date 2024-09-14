@@ -5,7 +5,7 @@ import { useAuthContext } from "../context/AuthContext";
 
 import React from "react";
 
-const loginForm = () => {
+const LoginForm = () => {
   const { registerUser, loginUser, googleLogin } = useAuthContext();
 
   const [values, setValues] = useState({
@@ -54,7 +54,7 @@ const loginForm = () => {
             Ingresar
           </Button>
           <Button
-            className="bg-white bg-violet-800 text-white p-2"
+            className="bg-violet-800  text-white p-2"
             onClick={registrar(values)}
           >
             Registrarme
@@ -71,4 +71,4 @@ const loginForm = () => {
   );
 };
 
-export default loginForm;
+export default LoginForm;

@@ -3,7 +3,7 @@ import React from "react";
 import { useParams } from "next/navigation";
 import ProductDetail from "@/app/components/productDetail";
 
-const product = async () => {
+const Product = async () => {
   const { product } = useParams();
   const data = await fetch(`http://localhost:3000/api/productos/all`, {
     cache: "no-store",
@@ -20,4 +20,4 @@ const product = async () => {
   );
 };
 
-export default product;
+export default Product;

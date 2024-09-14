@@ -19,6 +19,7 @@ export default function Home() {
             width={1800}
             height={600}
           />
+          <p>.</p>
         </div>
 
         <div className="row-start-2">

@@ -1,9 +1,9 @@
 "use client";
 import Image from "next/image";
-import { useCartContext } from "../context/cartContext";
+import { UseCartContext } from "../context/cartContext";
 
 const cart = () => {
-  const { cartTotalQuantity } = useCartContext();
+  const { cartTotalQuantity } = UseCartContext();
 
   return (
     <div className="flex">

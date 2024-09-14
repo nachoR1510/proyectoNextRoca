@@ -1,13 +1,12 @@
 import React, { useContext, useState } from "react";
 import Button from "../button";
-import { useCartContext } from "../context/cartContext";
-import Image from "next/image";
+import { UseCartContext } from "../context/cartContext";
 
-const itemCounter = ({ product }) => {
+const ItemCounter = ({ product }) => {
   const [counter, setCounter] = useState(1);
   const increase = () => setCounter(counter + 1);
   const decrease = () => setCounter(counter - 1);
-  const { cartCount } = useCartContext();
+  const { cartCount } = UseCartContext();
   const comprar = () => {
     cartCount(product, counter);
   };
@@ -35,4 +34,4 @@ const itemCounter = ({ product }) => {
   );
 };
 
-export default itemCounter;
+export default ItemCounter;
