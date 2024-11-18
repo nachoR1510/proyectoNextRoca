@@ -5,23 +5,31 @@ import Cart from "./cart/cart";
 
 const header = () => {
   return (
-    <header className="w-full h-20 grid grid-colums-3 text-black backdrop-blur-lg bg-white/50  text-xl font-bold fixed font-urban aling-center z-50">
-      <div className="gap-4 flex col-start-2 justify-center items-center">
-        <Link href={"/productos/all"}>
-          <h2>PRODUCTOS</h2>
-        </Link>
+    <header className="w-full h-16 grid grid-cols-3 text-white bg-stone-800 fixed z-50 font-urban shadow-sm shadow-black">
+      <div className="gap-4 flex justify-center items-center col-start-1 bg-gradient-to-r from-indigo-800 via-purple-700 to-pink-600">
         <Link href={"/"}>
-          <div className="flex flex-col place-items-center">
-            <Image alt="logo" src={"/logo.png"} width={50} height={50} />
-            <p className="text-sm">MAMBA</p>
+          <div className="flex place-items-center">
+            <Image
+              alt="logo"
+              src={"/logo-ultraGaming.png"}
+              width={60}
+              height={60}
+              className="select-none"
+            />
+            <p className="text-2xl ">ULTRA GAMING</p>
           </div>
-        </Link>
-        <Link href={"/software"}>
-          <h3>SOFTWARE</h3>
         </Link>
       </div>
 
-      <div className="col-start-3 flex justify-center items-center gap-5">
+      <div className="gap-4 flex justify-center items-center col-start-2">
+        <Link href={"/productos/all"}>
+          <h2 className="text-xl transition-all ease-in-out hover:text-purple-500 hover:animate-pulse hover:drop-shadow">
+            PRODUCTOS
+          </h2>
+        </Link>
+      </div>
+
+      <div className="flex justify-center gap-5 justify-center items-center col-start-3 select-none">
         <Link href={"/carrito"}>
           <Cart />
         </Link>

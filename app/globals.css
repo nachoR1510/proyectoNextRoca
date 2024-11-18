@@ -5,6 +5,16 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  scrollbar-width: thin;
+  scrollbar-color: rgb(168 85 247) rgba(255, 255, 255, 0);
+}
+
+.outline-text {
+  -webkit-text-stroke: 2px white;
+  color: transparent; 
+}
+
 
 @layer utilities {
   .text-balance {

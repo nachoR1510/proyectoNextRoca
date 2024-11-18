@@ -3,12 +3,14 @@ import Image from "next/image";
 import DeleteProductBtn from "./delateProductBtn";
 
 const productTable = async () => {
-  const items = await fetch(
-    `http://${process.env.VERCEL_URL}/api/productos/all`,
-    {
-      cache: "no-store",
-    }
-  ).then((r) => r.json());
+  const baseUrl =
+    typeof window === "undefined"
+      ? `http://${process.env.VERCEL_URL || "localhost:3000"}`
+      : "";
+
+  const items = await fetch(`${baseUrl}/api/productos/all`, {
+    cache: "no-store",
+  }).then((r) => r.json());
 
   return (
     <div className="overflow-x-auto">

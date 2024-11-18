@@ -2,12 +2,14 @@ import React from "react";
 import Card from "./card";
 
 const productList = async ({ category }) => {
-  const data = await fetch(
-    `http://${process.env.VERCEL_URL}/api/productos/${category}`,
-    {
-      cache: "no-store",
-    }
-  ).then((r) => r.json());
+  const baseUrl =
+    typeof window === "undefined"
+      ? `http://${process.env.VERCEL_URL || "localhost:3000"}`
+      : "";
+
+  const data = await fetch(`${baseUrl}/api/productos/${category}`, {
+    cache: "no-store",
+  }).then((r) => r.json());
 
   return (
     <div className="flex flex-wrap justify-center item-center gap-5">

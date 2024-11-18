@@ -1,78 +1,106 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
-export default function Home() {
+const Home = async () => {
+  const baseUrl =
+    typeof window === "undefined"
+      ? `http://${process.env.VERCEL_URL || "localhost:3000"}`
+      : "";
+
+  const data = await fetch(`${baseUrl}/api/productos/all`, {
+    cache: "no-store",
+  }).then((r) => r.json());
+
+  const destacado = data.filter((data) => data.title == "XBOARD QS");
+
   return (
     <main>
-      <div
-        className="h-screen w-full bg-fixed grid grid-cols-12 grid-rows-12 md:grid-cols-2"
-        style={{
-          backgroundImage: `url("/bgMain.jpg")`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-        }}
-      >
-        <div className="fixed invisible lg:visible bottom-48 left-5">
-          <Image
-            alt="pulsar"
-            src={"/pulsarText.png"}
-            width={1800}
-            height={600}
-          />
-          <p>.</p>
-        </div>
+      {destacado.map((product, index) => {
+        const fontSize = product.fabricante.length >= 7 ? "22rem" : "32rem";
 
-        <div className="row-start-2">
-          <h2 className="mt-10 ml-10 text-base text-white font-croma font-bold pt-5 pb-5 w-auto hidden md:flex">
-            //- Pulsar XBOARD QS Mechanical Gaming Keyboard
-          </h2>
-        </div>
+        return (
+          <div
+            key={index}
+            className="h-screen w-full bg-fixed grid grid-rows-3 grid-cols-3"
+            style={{
+              backgroundImage: `url("/bg-main.jpg")`,
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+            }}
+          >
+            <div className="relative flex justify-center items-center h-screen row-start-1 row-span-3 col-start-1 col-span-3 overflow-hidden">
+              <h2
+                className="text-white font-urban font-bold select-none pl-1 absolute text-center leading-none"
+                style={{ fontSize }}
+              >
+                {product.fabricante.toUpperCase()}
+              </h2>
 
-        <div className="flex items-center  text-center flex-col-reverse row-start-5 row-span-5 col-span-11 md:col-span-2 md:justify-center md:flex-row">
-          <div className="flex flex-col">
-            <Image
-              className=" ml-5 md:-rotate-12 drop-shadow-xl"
-              alt="tecladoInicio"
-              src={"/tecladoMain.png"}
-              width={700}
-              height={600}
-            />
+              <h3
+                className="text-white font-urban font-bold drop-shadow select-none pl-1 z-30 outline-text absolute pointer-events-none text-center leading-none"
+                style={{ fontSize }}
+              >
+                {product.fabricante.toUpperCase()}
+              </h3>
+            </div>
 
-            <h2 className="mt-10 ml-10 bg-white text-xs font-croma font-bold pt-5 pb-5 md:invisible">
-              Pulsar XBOARD QS Mechanical Gaming Keyboard
-            </h2>
+            <div className="col-start-1 col-span-3 row-start-1 row-span-3 justify-self-center content-center">
+              <Link href={`/productPage/${product.title.replace(/ /g, "")}`}>
+                <Image
+                  className="-rotate-12 drop-shadow-xl transition-all hover:scale-110 select-none z-30"
+                  alt="tecladoInicio"
+                  src={product.img}
+                  width={700}
+                  height={700}
+                />
+              </Link>
+            </div>
+
+            <div className="flex items-center gap-5 place-self-center row-start-3 col-start-1 col-span-3 gap-5 text-white text-2xl mt-40">
+              <div className="flex content-center gap-5 w-full h-24 p-5 font-croma bg-stone-800 border-t border-purple-500 shadow-xl">
+                <Image
+                  src={"/credit-card.svg"}
+                  alt="tarjeta"
+                  width={50}
+                  height={50}
+                />
+                <h4>Hasta 12 cuotas.</h4>
+              </div>
+
+              <div className="flex items-center gap-5 w-full h-24 p-5 font-croma bg-stone-800 border-t border-purple-500 shadow-xl">
+                <Image
+                  src={"/shipping.svg"}
+                  alt="tarjeta"
+                  width={50}
+                  height={50}
+                />
+                <h4>Envio a todo el pais.</h4>
+              </div>
+
+              <div className="flex items-center gap-5 w-full h-24 p-5 font-croma bg-stone-800 border-t border-purple-500 shadow-xl">
+                <Image
+                  src={"/shield.svg"}
+                  alt="tarjeta"
+                  width={50}
+                  height={50}
+                />
+                <h4>Garantia oficial.</h4>
+              </div>
+            </div>
+
+            <div className="row-start-1 col-start-1 col-span-2 place-self-start bg-stone-800 flex p-5 gap-1 border-l border-purple-500 mt-20 ml-5">
+              <Image src={"/stars.svg"} alt="tarjeta" width={30} height={30} />
+              <h5 className="text-white font-urban text-2xl w-auto">
+                {product.fabricante}-{product.title} | $
+                {product.price.toLocaleString()}
+              </h5>
+            </div>
           </div>
-        </div>
-
-        <div className="row-start-10 hidden lg:col-span-2 lg:flex  justify-center gap-5">
-          <div className="backdrop-blur bg-white/20 w-[500px] h-40 flex flex-col gap-5">
-            <h2 className="font-croma font-bold text-xl text-center pt-2">
-              Intercambio rapido.
-            </h2>
-            <p className="font-croma text-lg text-center">
-              Los interruptores se pueden reemplazar sin soldar.
-            </p>
-          </div>
-
-          <div className="backdrop-blur bg-white/20 w-[500px] h-40 flex flex-col gap-5">
-            <h2 className="font-croma font-bold text-xl text-center pt-2">
-              Perilla de control.
-            </h2>
-            <p className="font-croma text-lg text-center">
-              Perilla de control de volumen y LED.
-            </p>
-          </div>
-
-          <div className="backdrop-blur bg-white/20 w-[500px] h-40 flex flex-col gap-5">
-            <h2 className="font-croma font-bold text-xl text-center pt-2">
-              ALUMINIO CNC.
-            </h2>
-            <p className="font-croma text-lg text-center">
-              Cuerpo de aluminio mecanizado por CNC de precisión.
-            </p>
-          </div>
-        </div>
-      </div>
+        );
+      })}
     </main>
   );
-}
+};
+
+export default Home;
