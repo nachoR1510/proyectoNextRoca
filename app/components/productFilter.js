@@ -1,51 +1,45 @@
+"use client";
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const productFilter = () => {
+  const categorias = ["teclado", "auriculares", "mouse"];
+  const pathname = usePathname();
+
   return (
-    <div className="flex justify-center mb-5">
-      <div className="flex justify-center gap-10 mt-7">
-        <div className="flex flex-col justify-center items-center">
-          <Link href={"/productos/teclado"} className="h-24">
+    <div className="flex flex-col gap-5 ml-20 mt-1 mb-1">
+      {pathname !== "/productos/all" && (
+        <Link href="/productos/all">
+          <div className="flex items-center justify-center gap-5 w-60 mt-5">
+            <p className="text-white font-croma text-xl">X quitar filtros</p>
+          </div>
+        </Link>
+      )}
+
+      {categorias.map((categoria, index) => (
+        <Link key={index} href={`/productos/${categoria}`}>
+          <div className="flex items-center gap-10 border-l border-purple-500 w-96 h-36 bg-stone-800 overflow-hidden relative hover:scale-105">
             <Image
-              src={"/icon-keyboard.webp"}
-              alt="teclado-icon"
-              width={160}
-              height={100}
-              className="pt-5"
+              alt={categoria}
+              src={`/icon-${categoria}.webp`}
+              width={300}
+              height={300}
+              className="absolute overflow-hidden -right-24 z-10"
             />
-          </Link>
-
-          <p className="text-white text-center font-urban">Teclados</p>
-        </div>
-
-        <div className="flex flex-col justify-center text-center">
-          <Link href={"/productos/mouse"} className="h-24">
-            <Image
-              src={"/icon-mouse.png"}
-              alt="mouse-icon"
-              width={100}
-              height={90}
-            />
-          </Link>
-
-          <p className="text-white font-urban">Mouse</p>
-        </div>
-
-        <div className="flex flex-col justify-center text-center">
-          <Link href={"/productos/auriculares"} className="h-24">
-            <Image
-              src={"/icon-headphone.webp"}
-              alt="auriculares-icon"
-              width={100}
-              height={90}
-            />
-          </Link>
-
-          <p className="text-white font-urban">Auriculares</p>
-        </div>
-      </div>
+            <p
+              className={`text-white font-croma text-3xl z-20 ml-1 ${
+                pathname === `/productos/${categoria}`
+                  ? `text-purple-500`
+                  : `text-white`
+              }`}
+            >
+              {categoria}
+            </p>
+          </div>
+        </Link>
+      ))}
     </div>
   );
 };
