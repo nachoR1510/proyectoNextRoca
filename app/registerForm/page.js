@@ -1,21 +1,19 @@
 "use client";
 import { useState } from "react";
-import Button from "../button";
-import { useAuthContext } from "../context/AuthContext";
-import Link from "next/link";
+import Button from "../components/button";
+import { useAuthContext } from "../components/context/AuthContext";
 import Image from "next/image";
 
 import React from "react";
 
-const LoginForm = () => {
-  const { loginUser } = useAuthContext();
-
+const RegisterForm = () => {
+  const { registerUser } = useAuthContext();
   const [values, setValues] = useState({
     email: "",
     password: "",
   });
-
-  const [error, setError] = useState(""); // Estado para manejar errores
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     setValues({
@@ -26,25 +24,29 @@ const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(""); // Reiniciar el error antes de intentar loguear
+    setLoading(true);
+    setError("");
 
     try {
-      await loginUser(values);
+      await registerUser(values);
+      setValues({ email: "", password: "" });
     } catch (err) {
-      setError("Correo o contraseña incorrectos."); // Mensaje de error genérico
+      console.error("Error al registrar usuario:", err);
+      setError("Hubo un problema al registrar el usuario.");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="w-screen h-screen grid grid-rows-12 grid-cols-12">
       <form
-        onSubmit={handleSubmit}
         className="bg-stone-800 w-full col-start-2 row-start-3 col-span-4 row-span-9 flex flex-col gap-5"
+        onSubmit={handleSubmit}
       >
         <h2 className="text-white font-inter font-bold text-5xl flex justify-center pt-5">
-          INICIAR SESIÓN.
+          REGISTRARSE
         </h2>
-
         <input
           type="email"
           value={values.email}
@@ -53,7 +55,6 @@ const LoginForm = () => {
           name="email"
           onChange={handleChange}
         />
-
         <input
           type="password"
           value={values.password}
@@ -62,22 +63,16 @@ const LoginForm = () => {
           name="password"
           onChange={handleChange}
         />
-
-        {/* Mostrar mensaje de error si hay un error */}
-        {error && <p className="text-red-500 text-center font-bold">{error}</p>}
-
+        {error && <p className="text-red-500">{error}</p>}
         <div className="flex gap-5">
           <Button
-            type="submit"
             className="bg-purple-500 rounded-sm text-white p-2 font-inter font-bold text-3xl hover:scale-105 transition-all mx-auto"
+            type="submit"
+            disabled={loading}
           >
-            INICIAR SESIÓN.
+            {loading ? "Registrando..." : "Registrarme"}{" "}
           </Button>
         </div>
-
-        <Link href="/registerForm" className="text-blue-600 font-inter mx-auto">
-          ¿No tienes cuenta? Regístrate.
-        </Link>
       </form>
 
       <div className="row-start-3 col-start-7 row-span-8 col-span-5 relative">
@@ -90,10 +85,10 @@ const LoginForm = () => {
         />
 
         <Image
-          src="/icon-mouse.webp"
+          src="/mouse-register.webp"
           alt="mouse"
           className="absolute inset-0 m-auto rotate-6 z-40"
-          width={600}
+          width={430}
           height={600}
         />
 
@@ -109,4 +104,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default RegisterForm;

@@ -12,8 +12,8 @@ const productFilter = () => {
     <div className="flex flex-col gap-5 ml-20 mt-1 mb-1">
       {pathname !== "/productos/all" && (
         <Link href="/productos/all">
-          <div className="flex items-center justify-center gap-5 w-60 mt-5">
-            <p className="text-white font-croma text-xl">X quitar filtros</p>
+          <div className="flex items-center justify-center gap-5  mt-5 bg-purple-500 font-bold rounded-sm">
+            <p className="text-white font-inter text-xl">Quitar filtros</p>
           </div>
         </Link>
       )}
@@ -29,7 +29,7 @@ const productFilter = () => {
               className="absolute overflow-hidden -right-24 z-10"
             />
             <p
-              className={`text-white font-croma text-3xl z-20 ml-1 ${
+              className={`text-white font-inter text-3xl z-20 ml-1 ${
                 pathname === `/productos/${categoria}`
                   ? `text-purple-500`
                   : `text-white`

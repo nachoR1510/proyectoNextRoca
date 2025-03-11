@@ -11,13 +11,19 @@ const ItemCounter = ({ product }) => {
     cartCount(product, counter);
   };
   return (
-    <div className="flex gap-2 font-croma flex-col lg:flex-row">
-      <div className="flex  bg-white w-20 lg:w-[100px] p-2 lg:text-2xl text-black text-center hover:bg-black hover:text-white">
-        <Button onClick={decrease} disabled={counter <= 1} className="w-20">
+    <div className="flex gap-5  flex-col lg:flex-row">
+      <div className="flex text-white text-center font-bold font-inter">
+        <Button
+          onClick={decrease}
+          disabled={counter <= 1}
+          className="w-10 rounded-full"
+        >
           -
         </Button>
-        <div>{counter}</div>
-        <Button onClick={increase} className="w-20">
+        <div className="border border-purple-500 w-12 rounded-sm flex justify-center items-center">
+          <p className="text-center">{counter}</p>
+        </div>
+        <Button onClick={increase} className="w-10">
           +
         </Button>
       </div>
@@ -25,7 +31,7 @@ const ItemCounter = ({ product }) => {
       <div className="flex">
         <Button
           onClick={comprar}
-          className="bg-white p-2 lg:text-3xl hover:bg-black hover:text-white"
+          className="bg-purple-500 p-2 lg:text-3xl text-white font-bold font-inter hover:scale-110 transition-all rounded-sm"
         >
           Añadir al carrito.
         </Button>

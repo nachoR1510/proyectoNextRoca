@@ -37,7 +37,7 @@ const DeleteProductBtn = ({ title, fabricante, category }) => {
 
   return (
     <button onClick={deleteProduct}>
-      <Image alt="imgTacho" src={"/icon-trash.svg"} width={80} height={80} />
+      <Image alt="imgTacho" src={"/trash-icon.svg"} width={80} height={80} />
     </button>
   );
 };

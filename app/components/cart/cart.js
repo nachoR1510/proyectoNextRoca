@@ -8,7 +8,9 @@ const Cart = () => {
   return (
     <div className="flex">
       <Image alt="imgCarrito" src={"/icon-cart.svg"} width={30} height={30} />
-      <p>{cartTotalQuantity() || 0}</p>
+      <p className="bg-purple-500 rounded-sm p-1 text-center h-8">
+        {cartTotalQuantity() || 0}
+      </p>
     </div>
   );
 };

@@ -10,14 +10,14 @@ const card = ({ title, price, img, category, fabricante }) => {
           <Image alt={title} src={img} width={300} height={500} />
         </div>
         <div className="flex flex-col gap-10 text-center row-start-3">
-          <div className="font-bold md:text-2xl font-urban h-14 border-l border-purple-500 text-white">
+          <div className="font-bold md:text-2xl font-inter h-14 border-l border-purple-500 text-white">
             <h3 className="mr-5 ml-5">
               {category} {fabricante} {title}
             </h3>
           </div>
-          <div className="md:text-3xl font-urban text-white text-center h-14">
+          <div className="md:text-3xl font-inter text-white text-center h-14">
             {" "}
-            ${price}{" "}
+            ${price.toLocaleString()}{" "}
           </div>
         </div>
       </div>

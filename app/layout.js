@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import HEADER from "./components/header";
+import FOOTER from "./components/footer";
 import { CartProvider } from "./components/context/cartContext";
 import { AuthProvider } from "./components/context/AuthContext";
 
@@ -16,11 +17,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`bg-stone-900 ${inter.className}`}>
+      <body className={`bg-stone-900 overflow-x-hidden ${inter.className}`}>
         <AuthProvider>
           <CartProvider>
             <HEADER />
             {children}
+            <FOOTER />
           </CartProvider>
         </AuthProvider>
       </body>

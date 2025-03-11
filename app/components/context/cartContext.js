@@ -52,14 +52,6 @@ export const CartProvider = ({ children }) => {
     setCart([]);
   };
 
-  const cartSub = (product, newCount) => {
-    const oldCount = cart.filter((el) => el.title === product.title);
-    oldCount.map((el) => (newCount = el.quantity - newCount));
-    const newCart = cart.filter((el) => el.title !== product.title);
-    newCart.push({ ...product, quantity: newCount });
-    sortCart(newCart);
-  };
-
   const removeFromCart = (item) => {
     setCart(cart.filter((product) => product.title !== item.title));
     cartJSON = JSON.stringify(
@@ -67,6 +59,33 @@ export const CartProvider = ({ children }) => {
     );
     localStorage.removeItem("cartJSON");
     localStorage.setItem("cartJSON", cartJSON);
+  };
+
+  const increaseQuantity = (product) => {
+    const updatedCart = cart.map((item) =>
+      item.title === product.title
+        ? { ...item, quantity: item.quantity + 1 }
+        : item
+    );
+    setCart(updatedCart);
+
+    localStorage.removeItem("cartJSON");
+    localStorage.setItem("cartJSON", JSON.stringify(updatedCart));
+  };
+
+  const decreaseQuantity = (product) => {
+    const updatedCart = cart
+      .map((item) =>
+        item.title === product.title
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      )
+      .filter((item) => item.quantity > 0);
+
+    setCart(updatedCart);
+
+    localStorage.removeItem("cartJSON");
+    localStorage.setItem("cartJSON", JSON.stringify(updatedCart));
   };
 
   return (
@@ -78,8 +97,9 @@ export const CartProvider = ({ children }) => {
         cartTotalQuantity,
         totalPrice,
         clearCart,
-        cartSub,
         removeFromCart,
+        increaseQuantity,
+        decreaseQuantity,
       }}
     >
       {children}
