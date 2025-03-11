@@ -132,7 +132,10 @@ const carrito = () => {
         </h1>
         {cart.map((item, index) => {
           return (
-            <div className="text-white font-inter text-xl flex gap-5 pt-2">
+            <div
+              className="text-white font-inter text-xl flex gap-5 pt-2"
+              key={index}
+            >
               <p className="w-96 pl-2">
                 {item.category} {item.fabricante} {item.title}
               </p>
