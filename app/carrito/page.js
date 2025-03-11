@@ -67,11 +67,8 @@ const carrito = () => {
       <div className="row-start-3 row-span-12 col-start-2 col-span-5 lg:text-4xl justify-self-center flex flex-col gap-5 overflow-auto pb-5 pr-5">
         {cart.map((item, index) => {
           return (
-            <div className="flex flex-row gap-1">
-              <div
-                className="bg-stone-800 flex p-2 items-center h-40 w-full border-l border-purple-500"
-                key={index}
-              >
+            <div className="flex flex-row gap-1" key={index}>
+              <div className="bg-stone-800 flex p-2 items-center h-40 w-full border-l border-purple-500">
                 <Image
                   alt={item.title}
                   src={item.img}
